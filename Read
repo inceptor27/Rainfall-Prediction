@@ -1,0 +1,72 @@
+https://github.com/inceptor27/Rainfall-Prediction/tree/main
+
+# Rainfall-Prediction-App
+
+This application was developed as a final year capstone project focusing on:
+## Optimization of Tsukamoto FIS in Predicting Rainfall Using a Genetic Algorithm
+
+<details>
+  <summary>Table of Contents</summary>
+  <ul>
+    <li><a href="#1-introduction">1. INTRODUCTION</a></li>
+    <li><a href="#2-hardware--software-requirements">2. HARDWARE & SOFTWARE REQUIREMENTS</a></li>
+    <li><a href="#3-installing-the-project">3. INSTALLING THE PROJECT</a></li>
+    <li><a href="#4-running-the-app">4. RUNNING THE APP</a></li>
+    <li><a href="#5-using-the-app">5. USING THE APP</a>
+      <ul>
+        <li><a href="#51-predicting-rainfall-from-a-dataset">5.1 Predicting Rainfall From Dataset</a></li>
+        <li><a href="#52-predicting-rainfall-from-new-data">5.2 Predicting Rainfall From New Data</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-class-implementation">6. CLASS IMPLEMENTATION</a></li>
+    <li><a href="#7-about-the-author">7. ABOUT THE AUTHOR</a></li>
+    <li><a href="#8-license">8. LICENSE</a></li>
+  </ul>
+</details>
+
+## 1. INTRODUCTION
+[cite_start]The Rainfall Prediction App is a desktop-based application developed to forecast monthly rainfall. [cite_start]The prediction model in this application employs the Tsukamoto Fuzzy Inference System (FIS) optimized using a Genetic Algorithm (GA). [cite_start]The system processes historical climate data—comprising attributes such as temperature, air humidity, air pressure, wind velocity, and rainfall—to generate accurate forecasts and evaluate the Mean Absolute Percentage Error (MAPE). 
+
+## 2. HARDWARE & SOFTWARE REQUIREMENTS
+The hardware required to support the operation of this application is as follows:
+* [cite_start]Laptop or PC with a minimum display resolution of 1280 * 720 
+
+The software required to support the operation of this application is as follows:
+* [cite_start]Windows OS 10/11 64-bit 
+* [cite_start]NetBeans IDE version 14 and above 
+* [cite_start]Java Development Kit (JDK) version 20 and above 
+
+## 3. INSTALLING THE PROJECT
+[cite_start]Installing the application via Git Bash CLI:
+1. [cite_start]Open Git Bash.
+2. Choose the download location folder. [cite_start]For example: `cd d://downloads`.
+3. Type `git clone https://github.com/[Your-Username]/Rainfall-Prediction-App.git` 
+4. [cite_start]Check the download folder and open the project.
+
+## 4. RUNNING THE APP
+[cite_start]Here are the steps to run the app:
+1. [cite_start]Launch NetBeans.
+2. [cite_start]Open the downloaded project.
+> [cite_start]**Note:** If the default JDK used is below version 20, it needs to be changed. [cite_start]Right-click on the project -> Select *Properties* -> Choose the *Libraries* menu -> In the *Java Platform* dropdown menu, select JDK version 20 or above.
+3. [cite_start]Open the `gui` package and select the `Main.java` class.
+4. [cite_start]Run the application.
+
+## 5. USING THE APP
+[cite_start]The system features two primary functional requirements:
+
+### 5.1 Predicting Rainfall From A Dataset
+[cite_start]Implemented on the app's homepage, this module is utilized to conduct research on rainfall prediction to find the lowest MAPE value using genetic algorithm parameters: generation size, population size, crossover rate, and mutation rate. 
+
+> [cite_start]**Caution:** The values that can be input for crossover rate and mutation rate are limited to a range between 0 and 1! [cite_start]If they are outside of this range, the program will display an error message. [cite_start]Additionally, each parameter only accepts numerical input data.
+
+### 5.2 Predicting Rainfall From New Data
+[cite_start]Implemented on the *Manual Forecasting* page, this module is used to predict rainfall values from new data. [cite_start]The boundaries of the fuzzy membership functions used are taken from the chromosome that produced the best fitness score during the research. [cite_start]Users can input attribute values for temperature, air humidity, air pressure, and wind speed to generate a forecast.
+
+## 6. CLASS IMPLEMENTATION
+
+* [cite_start]**`GeneticAlgorithm.java`**: This abstract superclass is utilized to receive input data from the `Main.java` class and initiates the process of searching for a chromosome that can generate membership function boundaries with the best fitness value. [cite_start]The stage starts from initializing the initial population to computing the fitness value.
+* [cite_start]**`FISTsukamoto.java`**: A subclass of `GeneticAlgorithm.java` used to calculate the rainfall value using the Tsukamoto FIS method. [cite_start]This class also computes the Absolute Percentage Error (APE) and Mean Absolute Percentage Error (MAPE), returning the MAPE values to the superclass. [cite_start]The process encompasses fuzzification, rule-based implication, and defuzzification.
+* [cite_start]**`Main.java`**: Represents the application's GUI, comprising the Homepage and the Manual Forecasting page.
+
+## 8. LICENSE
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
